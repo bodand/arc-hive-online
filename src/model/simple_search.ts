@@ -15,6 +15,6 @@ export class SimpleSearch implements SearchField {
    * @inheritdoc
    */
   to_query_string(): string {
-    return this.query?.replace(' ', "+") || "";
+    return this.query?.replaceAll(' ', "+") || "";
   }
 }
