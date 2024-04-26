@@ -27,15 +27,11 @@
 
 .full-height {
   display: block;
-  height: calc(100vh - var(--header-height));
+  min-height: calc(100vh - var(--header-height));
 }
 
 .splash-close {
   animation: slide 1.3s cubic-bezier(.7, .01, .42, .54) 1.3s forwards;
-}
-
-.none {
-  display: none;
 }
 
 @keyframes slide {
@@ -56,7 +52,8 @@
 
 .app-content {
   position: relative;
-  width: 100vw;
+  max-width: 100vw;
+  min-width: calc(100vw - 2rem);
   height: calc(100vh - 2.1 * var(--header-height));
 }
 
@@ -140,7 +137,7 @@
     opacity: 1;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.35;
   }
 }
 

@@ -9,10 +9,10 @@ import {Theme} from "../../model/theme";
 })
 export class ThemeService {
   private _themes: Theme[] = [
-    {name: "White", key: "white"},
-    {name: "Dark", key: "g10"},
-    {name: "Darker", key: "g90"},
-    {name: "Darkest", key: "g100"},
+    {name: "Lighter", key: "white"},
+    {name: "Light", key: "g10"},
+    {name: "Dark", key: "g90"},
+    {name: "Darker", key: "g100"},
   ];
   private _theme: Theme = this._themes[2];
 
