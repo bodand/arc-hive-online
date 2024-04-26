@@ -41,8 +41,8 @@ export class ThemeService {
     let newTheme = this._themes.find(t => t.name === value);
     if (newTheme === undefined) throw new Error("Theme does not exist");
 
-    localStorage.setItem("ah-theme", JSON.stringify(this._theme));
     this._theme = newTheme;
+    localStorage.setItem("ah-theme", JSON.stringify(this._theme));
   }
 
   /**

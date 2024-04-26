@@ -1,8 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ThemeService} from "../services/theme.service";
-import {Theme} from "../../model/theme";
 import {DropdownModule, ListItem} from "carbon-components-angular";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-theme-selector',
@@ -25,12 +23,15 @@ export class ThemeSelectorComponent {
     this.theme = themeService.theme
     this.themeChange.emit(this.theme);
     this.themes = themeService.themes.map(x => {
-      return { content: x.name, selected: x.key === this.theme}
+      return {content: x.name, selected: x.key === this.theme}
     });
   }
 
   selecteditem($event: { item: ListItem; isUpdate?: boolean } | ListItem[]) {
-    let trueEvent = <{ item: ListItem; isUpdate?: boolean }>$event;
-    console.log(`item: `, $event);
+    let trueEvent = <{ item: ListItem }>$event;
+    console.log(trueEvent.item);
+    this.themeService.theme = trueEvent.item.content;
+    this.theme = this.themeService.theme
+    this.themeChange.emit(this.theme);
   }
 }
