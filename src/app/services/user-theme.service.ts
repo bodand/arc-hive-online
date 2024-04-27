@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-export type ThemeVariant = "dark" | "light";
+export type ThemeVariant = "Dark" | "Light";
 
 /**
  * A service for querying the user's current theme preferences.
@@ -20,6 +20,6 @@ export class UserThemeService {
    */
   get_user_theme(): ThemeVariant {
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-    return prefersDark ? "dark" : "light";
+    return prefersDark ? "Dark" : "Light";
   }
 }

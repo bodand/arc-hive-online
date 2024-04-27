@@ -19,13 +19,12 @@
   gap: 2rem;
 }
 .rows * {
-  min-width: 23%;
+  min-width: max(23%, 18rem);
 }
 
 app-card {
   max-width: 14rem;
   min-width: 20%;
-  width: 100%;
 }
 
 /*# sourceMappingURL=listings-page.component.css.map */

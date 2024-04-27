@@ -1,14 +1,21 @@
 .card-content {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column-reverse nowrap;
   justify-content: stretch;
   align-items: stretch;
   text-wrap: wrap;
   height: 30rem;
 }
-
-.card-content h2 {
+.card-content .card-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+  height: 100%;
+}
+.card-content .card-img img {
+  width: fit-content;
+  height: fit-content;
 }
 
 .ah-card {

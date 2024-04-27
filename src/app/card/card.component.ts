@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Work} from "../../model/work";
-import {animate, query, stagger, state, style, transition, trigger} from "@angular/animations";
+import {animate, query, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-card',
@@ -19,9 +19,14 @@ import {animate, query, stagger, state, style, transition, trigger} from "@angul
   ]
 })
 export class CardComponent implements OnInit {
+  private _rootUrl = "https://covers.openlibrary.org/b/";
+
   @Input() work: Work | null | undefined
   @Output() workChange: EventEmitter<Work> = new EventEmitter();
+
   state: "spawning" | "spawned";
+
+  cover: string | null = null;
 
   constructor() {
     this.state = "spawning";
@@ -29,5 +34,6 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
     this.state = "spawned";
+    this.cover = `${this._rootUrl}olid/${this.work?.coverOlId}-M.jpg`;
   }
 }

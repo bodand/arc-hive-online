@@ -22,7 +22,7 @@ export class SearchService {
 
   findWorks(query_string: string): Observable<Work> {
     return new Observable<Work>(sub => {
-      const url = `${this._rootUrl}?q=${query_string}&fields=${this._fields}&mode=everything`;
+      const url = `${this._rootUrl}?q=${query_string}&fields=${this._fields}&mode=everything&limit=500`;
       const payload = this.http.get<WorkPayload>(url);
       payload.subscribe({
         next(dto) {
