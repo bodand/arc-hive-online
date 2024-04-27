@@ -57,6 +57,16 @@
   height: calc(100vh - 2.1 * var(--header-height));
 }
 
+.themed-svg {
+  > circle {
+    fill: var(--cds-text-secondary);
+  }
+
+  > path {
+    fill: var(--cds-text-secondary);
+  }
+}
+
 .lds-grid,
 .lds-grid div {
   box-sizing: border-box;

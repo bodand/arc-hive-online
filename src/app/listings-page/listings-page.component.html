@@ -1,0 +1,17 @@
+<div>
+  <div *ngIf="hasNoContent" class="no-content">
+    <div class="header">
+      No content
+    </div>
+    <div class="content">
+      To search for books, go to the <a routerLink="/search">search</a> page.
+    </div>
+  </div>
+  <div *ngIf="!hasNoContent">
+    <div class="rows">
+      <div *ngFor="let x of (results | async)">
+        {{ x.title || "?" }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,14 +1,17 @@
 <div class="searches">
   <div class="primary-search">
-    <h2>Search for title, author, publisher...</h2>
+    <h2 class="search-head">Search for title, author, publisher...</h2>
+
     <cds-text-label>
       <input cdsText
              placeholder="...anything, all in one place!"
-             size="lg">
+             size="lg"
+             [(ngModel)]="simple.query">
     </cds-text-label>
     <div class="search-button">
       <button [isExpressive]="true"
-              cdsButton="primary">
+              cdsButton="primary"
+              (click)="search(simple)">
         Search
         <svg class="cds--btn__icon" cdsIcon="search" size="16"></svg>
       </button>
@@ -22,46 +25,71 @@
   </div>
 
   <div class="detailed-search">
-    <h2>Specify search fields explicitly</h2>
+    <h2 class="search-head">Specify search fields explicitly</h2>
 
     <div class="detailed-search-fields">
       <cds-text-label class="detailed-search-elem">
         <h4>Title</h4>
-        <input cdsText size="md">
+        <input cdsText
+               size="md"
+               placeholder="A study in scarlet"
+               [(ngModel)]="complex.title">
       </cds-text-label>
       <cds-text-label class="detailed-search-elem">
         <h4>Author</h4>
-        <input cdsText size="md">
+        <input cdsText
+               size="md"
+               placeholder="Shakespeare"
+               [(ngModel)]="complex.author">
       </cds-text-label>
       <cds-text-label class="detailed-search-elem">
         <h4>Subject</h4>
-        <input cdsText size="md">
+        <input cdsText
+               size="md"
+               placeholder="dystopia"
+               [(ngModel)]="complex.subject">
       </cds-text-label>
       <cds-text-label class="detailed-search-elem">
         <h4>Place</h4>
-        <input cdsText size="md">
+        <input cdsText
+               size="md"
+               placeholder="Hogwarts"
+               [(ngModel)]="complex.place">
       </cds-text-label>
       <cds-text-label class="detailed-search-elem">
         <h4>Language</h4>
-        <input cdsText size="md">
+        <input cdsText
+               size="md"
+               placeholder="Klingon"
+               [(ngModel)]="complex.language">
       </cds-text-label>
       <cds-text-label class="detailed-search-elem">
         <h4>Publisher</h4>
-        <input cdsText size="md">
+        <input cdsText
+               size="md"
+               placeholder="Manning"
+               [(ngModel)]="complex.publisher">
       </cds-text-label>
       <cds-text-label class="detailed-search-elem">
         <h4>Published after</h4>
-        <input cdsText size="md">
+        <input cdsText
+               size="md"
+               placeholder="4000 BC"
+               [(ngModel)]="complex.publish_after">
       </cds-text-label>
       <cds-text-label class="detailed-search-elem">
         <h4>Published before</h4>
-        <input cdsText size="md">
+        <input cdsText
+               size="md"
+               placeholder="2000"
+               [(ngModel)]="complex.published_before">
       </cds-text-label>
     </div>
 
     <div class="search-button">
       <button [isExpressive]="true"
-              cdsButton="primary">
+              cdsButton="primary"
+              (click)="search(complex)">
         Advanced search
 
         <svg class="cds--btn__icon" cdsIcon="search" size="16"></svg>

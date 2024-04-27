@@ -1,29 +1,30 @@
 <div [cdsTheme]="theme" class="full-height">
   <cds-header name="Hive" brand="Arc">
-    <cds-hamburger [active]="hamburgerOpen" (selected)="hamburgerOpen = !hamburgerOpen">
+    <cds-hamburger [active]="hamburger_open" (selected)="hamburger_open = !hamburger_open">
     </cds-hamburger>
 
     <cds-header-global>
       <app-theme-selector [(theme)]="theme"/>
     </cds-header-global>
   </cds-header>
-  <cds-sidenav [expanded]="hamburgerOpen">
-    <cds-sidenav-item [active]="true" routerLink="search">
+  <cds-sidenav [expanded]="hamburger_open">
+    <cds-sidenav-item [active]="matches_route('search')" routerLink="search">
       <svg cdsIcon="search" size="16"></svg>
       Search
     </cds-sidenav-item>
-    <cds-sidenav-item>
-      <svg id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <cds-sidenav-item [active]="matches_route('results')" routerLink="results">
+      <svg class="themed-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 32 32">
         <defs>
-          <style>.cls-1 {
-            fill: none;
-          }</style>
+          <style>
+            .cls-1 {
+              fill: none;
+            }
+          </style>
         </defs>
-        <title>table</title>
-        <path
-          d="M29,5a2,2,0,0,0-2-2H5A2,2,0,0,0,3,5V27a2,2,0,0,0,2,2H27a2,2,0,0,0,2-2ZM27,5V9H5V5Zm0,22H5V23H27Zm0-6H5V17H27Zm0-6H5V11H27Z"/>
-        <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
-              height="32"/>
+        <path d="M28,10H4A2.0022,2.0022,0,0,1,2,8V4A2.0021,2.0021,0,0,1,4,2H28a2.0021,2.0021,0,0,1,2,2V8A2.0022,2.0022,0,0,1,28,10ZM4,4V8H28V4Z" transform="translate(0 -0.0001)"/>
+        <path d="M28,30H4a2.0022,2.0022,0,0,1-2-2V24a2.0021,2.0021,0,0,1,2-2H28a2.0021,2.0021,0,0,1,2,2v4A2.0022,2.0022,0,0,1,28,30ZM4,24v4H28V24Z" transform="translate(0 -0.0001)"/>
+        <path d="M28,20H4a2.0022,2.0022,0,0,1-2-2V14a2.0021,2.0021,0,0,1,2-2H28a2.0021,2.0021,0,0,1,2,2v4A2.0022,2.0022,0,0,1,28,20ZM4,14v4H28V14Z" transform="translate(0 -0.0001)"/>
+        <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/>
       </svg>
       Results
     </cds-sidenav-item>

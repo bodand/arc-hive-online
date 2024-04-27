@@ -1,0 +1,23 @@
+.no-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.no-content .header {
+  font-size: 4rem;
+}
+.no-content .content {
+  margin-top: 1rem;
+}
+
+.rows {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2rem;
+}
+.rows * {
+  min-width: 49%;
+}
+
+/*# sourceMappingURL=listings-page.component.css.map */

@@ -17,10 +17,15 @@ export class ComplexSearch implements SearchField {
 
   /**
    * A subject/theme/keyword to search for.
-   * Depending on the <see cref="SubjectTotal"/> field, this field is matched
+   * Depending on the subject_total field, this field is matched
    * totally, without fuzziness.
    *
-   * @see
+   * @see subject_total
+   */
+  subject?: string;
+
+  /**
+   * Whether the set of subjects is to be searched for strictly.
    */
   subject_total: boolean = false;
 
@@ -67,14 +72,14 @@ export class ComplexSearch implements SearchField {
     this.add_field(builder, "author", this.author);
 
     let subj_key = this.subject_total ? "subject_key" : "subject";
-    this.add_field(builder, subj_key, this.author);
+    this.add_field(builder, subj_key, this.subject);
 
     this.add_field(builder, "place", this.place);
     this.add_field(builder, "person", this.person);
     this.add_field(builder, "language", this.language);
     this.add_field(builder, "publisher", this.publisher);
 
-    if (this.publish_after !== null || this.published_before !== null) {
+    if (!(this.publish_after === undefined && this.published_before === undefined)) {
       let before = this.published_before || "*";
       let after = this.publish_after || "*";
       this.add_field(builder, "publish_year", `[${after} TO ${before}]`)

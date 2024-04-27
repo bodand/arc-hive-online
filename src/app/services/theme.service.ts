@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Theme} from "../../model/theme";
+import {UserThemeService} from "./user-theme.service";
 
 /**
  * A service that provides the theming functionality for the application.
@@ -14,14 +15,18 @@ export class ThemeService {
     {name: "Dark", key: "g90"},
     {name: "Darker", key: "g100"},
   ];
-  private _theme: Theme = this._themes[2];
+  private _theme: Theme;
 
   /**
    * Constructs the service. Loads the previously set theme, if it is available.
    */
-  constructor() {
+  constructor(user_theme: UserThemeService) {
     let last = localStorage.getItem("ah-theme")
-    if (last !== null) this._theme = JSON.parse(last);
+    if (last !== null) {
+      this._theme = JSON.parse(last);
+    } else {
+      this._theme = this.get_theme_by_name(user_theme.get_user_theme());
+    }
   }
 
   /**
@@ -38,10 +43,7 @@ export class ThemeService {
    * @throws Error Invalid theme key specified.
    */
   set theme(value: string) {
-    let newTheme = this._themes.find(t => t.name === value);
-    if (newTheme === undefined) throw new Error("Theme does not exist");
-
-    this._theme = newTheme;
+    this._theme = this.get_theme_by_name(value);
     localStorage.setItem("ah-theme", JSON.stringify(this._theme));
   }
 
@@ -50,5 +52,11 @@ export class ThemeService {
    */
   get theme(): string {
     return this._theme.key;
+  }
+
+  private get_theme_by_name(name: string): Theme {
+    let newTheme = this._themes.find(t => t.name === name);
+    if (newTheme === undefined) throw new Error("Theme does not exist");
+    return newTheme;
   }
 }

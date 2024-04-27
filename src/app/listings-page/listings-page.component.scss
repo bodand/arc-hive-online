@@ -1,0 +1,24 @@
+.no-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .header {
+    font-size: 4rem;
+  }
+
+  .content {
+    margin-top: 1rem;
+  }
+}
+
+.rows {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2rem;
+
+  * {
+    min-width: 49%;
+  }
+}

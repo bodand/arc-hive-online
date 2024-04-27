@@ -65,7 +65,7 @@ export class Work {
    */
   constructor(dto: WorkDto) {
     this.olId = dto.key;
-    this.author = dto.author_name.join(", ");
+    this.author = dto.author_name?.join(", ");
     this.title = dto.title;
     this.firstPublishedYear = dto.first_published_year;
     this.ebookAccess = dto.ebook_access;

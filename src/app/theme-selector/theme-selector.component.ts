@@ -29,7 +29,6 @@ export class ThemeSelectorComponent {
 
   selecteditem($event: { item: ListItem; isUpdate?: boolean } | ListItem[]) {
     let trueEvent = <{ item: ListItem }>$event;
-    console.log(trueEvent.item);
     this.themeService.theme = trueEvent.item.content;
     this.theme = this.themeService.theme
     this.themeChange.emit(this.theme);
