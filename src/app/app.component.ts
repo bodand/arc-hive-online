@@ -1,24 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, RouterLink, RouterOutlet} from '@angular/router';
-import {IconModule, ThemeModule, UIShellModule} from "carbon-components-angular";
-import {NgIf} from "@angular/common";
-import {ThemeSelectorComponent} from "./theme-selector/theme-selector.component";
+import {Router} from '@angular/router';
 import {ThemeService} from "./services/theme.service";
-import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    UIShellModule,
-    ThemeModule,
-    NgIf,
-    IconModule,
-    RouterLink,
-    ThemeSelectorComponent,
-    HttpClientModule
-  ],
+  standalone: false,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

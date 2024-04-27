@@ -14,10 +14,18 @@
 .rows {
   display: flex;
   flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
   gap: 2rem;
 }
 .rows * {
-  min-width: 49%;
+  min-width: 23%;
+}
+
+app-card {
+  max-width: 14rem;
+  min-width: 20%;
+  width: 100%;
 }
 
 /*# sourceMappingURL=listings-page.component.css.map */

@@ -67,6 +67,11 @@
   }
 }
 
+// This breaks when applied in isolated CSS
+a[href="#"].cds--tile.cds--tile--clickable {
+  height: 100%;
+}
+
 .lds-grid,
 .lds-grid div {
   box-sizing: border-box;

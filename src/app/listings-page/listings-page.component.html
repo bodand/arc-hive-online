@@ -9,9 +9,7 @@
   </div>
   <div *ngIf="!hasNoContent">
     <div class="rows">
-      <div *ngFor="let x of (results | async)">
-        {{ x.title || "?" }}
-      </div>
+      <app-card *ngFor="let x of results" [work]="x | async"/>
     </div>
   </div>
 </div>

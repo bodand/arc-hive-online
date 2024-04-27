@@ -1,0 +1,29 @@
+.card-content {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: stretch;
+  align-items: stretch;
+  text-wrap: wrap;
+  height: 30rem;
+}
+
+.card-content h2 {
+  width: 100%;
+}
+
+.ah-card {
+  position: relative;
+  animation: card-slide 1s cubic-bezier(.7, .01, .42, .54);
+}
+
+@keyframes card-slide {
+  0% {
+    top: -3rem;
+    opacity: 0;
+  }
+
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
