@@ -3,7 +3,7 @@ import {ActivatedRoute, RouterLink} from "@angular/router";
 import {InputModule, LoadingModule} from "carbon-components-angular";
 import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 import {FormsModule} from "@angular/forms";
-import {Subject} from "rxjs";
+import {Observable, Subject} from "rxjs";
 import {SearchService} from "../services/search.service";
 import {Work} from "../../model/work";
 
@@ -28,12 +28,10 @@ export class ListingsPageComponent implements OnInit {
     private search: SearchService,
   ) {
     this.query.subscribe(query => {
-      console.log('query', query);
       if (query === undefined) return;
       this.search.findWorks(query).subscribe(results => {
-        console.log('results', results);
         this._resultsArray.push(results);
-        this.results.next(this._resultsArray)
+        this._results.next(this._resultsArray)
       })
     })
   }
@@ -41,7 +39,9 @@ export class ListingsPageComponent implements OnInit {
   hasNoContent = true;
   query: Subject<string> = new Subject<string>();
   private _resultsArray: Work [] = []
-  results: Subject<Work[]> = new Subject<Work[]>();
+  private _results: Subject<Work[]> = new Subject<Work[]>();
+
+  results: Observable<Work[]> = this._results.asObservable()
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(param => {
