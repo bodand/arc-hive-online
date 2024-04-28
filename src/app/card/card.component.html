@@ -3,8 +3,10 @@
                     [route]="['details', work?.olId]"
                     [href]="'/details' + work?.olId">
   <div class="card-content">
-    <h5>{{ work?.author || "" }}</h5>
-    <h3>{{ work?.title || "&lt;Unknown&gt;" }}</h3>
+    <div>
+      <h3>{{ work?.title || "&lt;Unknown&gt;" }}</h3>
+      <h5>{{ work?.author || "" }}</h5>
+    </div>
     <div class="card-img">
       <img [src]="cover" alt="Cover image for {{ work?.title || 'unknown book' }}"/>
     </div>

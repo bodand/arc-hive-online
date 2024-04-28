@@ -1,4 +1,4 @@
-<div class="details-whole" [cdsTheme]="theme$ | async">
+<div class="details-whole" [cdsTheme]="theme || (theme$ | async)">
   <div class="details-cover">
     <img [src]="cover$ | async" alt="Cover art">
   </div>
@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <markdown [data]="(work$|async)?.description || '# No description available'"/>
+    <markdown [data]="(work$ | async)?.description || '# No description available'"/>
 
     <cds-accordion>
       <cds-accordion-item title="Tags" class="tag-set">

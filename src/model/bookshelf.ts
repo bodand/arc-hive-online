@@ -25,7 +25,15 @@ export class Bookshelf {
    * The total sum of all data present.
    */
   get total() {
-    return this.want_to_read + this.current + this.already_read;
+    let want = this.want_to_read;
+    let current = this.current;
+    let done = this.already_read;
+
+    if (want <= 0) want = 1;
+    if (current <= 0) current = 1;
+    if (done <= 0) done = 1;
+
+    return want + current + done;
   }
 
   /**
@@ -50,7 +58,7 @@ export class Bookshelf {
   }
 
   private count_parcentage(cnt: number) {
-    if (cnt === 0) return 1;
+    if (cnt === 0) return 1 / this.total * 100;
     return cnt / this.total * 100;
   }
 

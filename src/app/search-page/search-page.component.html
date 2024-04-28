@@ -6,6 +6,7 @@
       <input cdsText
              placeholder="...anything, all in one place!"
              size="lg"
+             (keyup.enter)="search(simple)"
              [(ngModel)]="simple.query">
     </cds-text-label>
     <div class="search-button">
@@ -33,6 +34,7 @@
         <input cdsText
                size="md"
                placeholder="A study in scarlet"
+               (keyup.enter)="search(complex)"
                [(ngModel)]="complex.title">
       </cds-text-label>
       <cds-text-label class="detailed-search-elem">
@@ -40,6 +42,7 @@
         <input cdsText
                size="md"
                placeholder="Shakespeare"
+               (keyup.enter)="search(complex)"
                [(ngModel)]="complex.author">
       </cds-text-label>
       <cds-text-label class="detailed-search-elem">
@@ -47,6 +50,7 @@
         <input cdsText
                size="md"
                placeholder="dystopia"
+               (keyup.enter)="search(complex)"
                [(ngModel)]="complex.subject">
       </cds-text-label>
       <cds-text-label class="detailed-search-elem">
@@ -54,6 +58,7 @@
         <input cdsText
                size="md"
                placeholder="Hogwarts"
+               (keyup.enter)="search(complex)"
                [(ngModel)]="complex.place">
       </cds-text-label>
       <cds-text-label class="detailed-search-elem">
@@ -61,6 +66,7 @@
         <input cdsText
                size="md"
                placeholder="Klingon"
+               (keyup.enter)="search(complex)"
                [(ngModel)]="complex.language">
       </cds-text-label>
       <cds-text-label class="detailed-search-elem">
@@ -68,6 +74,7 @@
         <input cdsText
                size="md"
                placeholder="Manning"
+               (keyup.enter)="search(complex)"
                [(ngModel)]="complex.publisher">
       </cds-text-label>
       <cds-text-label class="detailed-search-elem">
@@ -75,6 +82,7 @@
         <input cdsText
                size="md"
                placeholder="4000 BC"
+               (keyup.enter)="search(complex)"
                [(ngModel)]="complex.publish_after">
       </cds-text-label>
       <cds-text-label class="detailed-search-elem">
@@ -82,6 +90,7 @@
         <input cdsText
                size="md"
                placeholder="2000"
+               (keyup.enter)="search(complex)"
                [(ngModel)]="complex.published_before">
       </cds-text-label>
     </div>

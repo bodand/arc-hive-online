@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Observable, Subject} from "rxjs";
 import {WorkDetails} from "../../model/work_details";
 import {DetailsService} from "../services/details.service";
@@ -10,20 +10,28 @@ import {Bookshelf} from "../../model/bookshelf";
   templateUrl: './details-page.component.html',
   styleUrl: './details-page.component.scss'
 })
-export class DetailsPageComponent {
+export class DetailsPageComponent implements OnInit {
   private _cover_url = "https://covers.openlibrary.org/w/";
   private _cover_src: Subject<string> = new Subject<string>();
 
   work$: Observable<WorkDetails> = null!;
   stats$: Observable<Bookshelf> = null!;
   cover$: Observable<string> = this._cover_src.asObservable();
-  theme$: Observable<any>;
+  theme: string | null = null;
+  theme$: Observable<any> = null!;
 
   constructor(
     private service: DetailsService,
-    themes: ThemeService
+    private themes: ThemeService
   ) {
-    this.theme$ = themes.theme$;
+    this.theme = this.themes.theme;
+  }
+
+  ngOnInit(): void {
+    this.theme$ = this.themes.theme$;
+    this.theme$.subscribe(theme => {
+      this.theme = null;
+    })
   }
 
   @Input()
