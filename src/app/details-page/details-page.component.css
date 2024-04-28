@@ -37,6 +37,9 @@
 }
 
 .details-cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-width: 15%;
   width: fit-content;
   flex-shrink: 0;
