@@ -1,0 +1,14 @@
+.startup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.startup .header {
+  font-size: 4rem;
+}
+.startup .content {
+  margin-top: 1rem;
+}
+
+/*# sourceMappingURL=startup-page.component.css.map */
