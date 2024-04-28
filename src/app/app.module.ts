@@ -22,6 +22,9 @@ import {FormsModule} from "@angular/forms";
 import {MarkdownModule, provideMarkdown} from "ngx-markdown";
 import {DetailsPageComponent} from "./details-page/details-page.component";
 
+/**
+ * The main module for the application.
+ */
 @NgModule({
   imports: [
     BrowserModule,
@@ -50,11 +53,11 @@ import {DetailsPageComponent} from "./details-page/details-page.component";
     provideMarkdown(),
   ],
   declarations: [
+    DetailsPageComponent,
     AppComponent,
     ListingsPageComponent,
     SearchPageComponent,
     CardComponent,
-    DetailsPageComponent,
   ],
   bootstrap: [AppComponent],
 })

@@ -5,6 +5,9 @@ import {ListingsPageComponent} from './listings-page/listings-page.component';
 import {StartupPageComponent} from "./startup-page/startup-page.component";
 import {DetailsPageComponent} from "./details-page/details-page.component";
 
+/**
+ * The routes for the application.
+ */
 export const routes: Routes = [
   {path: '', component: StartupPageComponent},
   {path: 'search', component: SearchPageComponent},

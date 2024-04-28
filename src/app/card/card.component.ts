@@ -2,6 +2,9 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Work} from "../../model/work";
 import {animate, query, style, transition, trigger} from "@angular/animations";
 
+/**
+ * The card component for displaying a book.
+ */
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -21,17 +24,36 @@ import {animate, query, style, transition, trigger} from "@angular/animations";
 export class CardComponent implements OnInit {
   private _rootUrl = "https://covers.openlibrary.org/b/";
 
+  /**
+   * The book to display.
+   */
   @Input() work: Work | null | undefined
+
+  /**
+   * Emits when the book is changed.
+   */
   @Output() workChange: EventEmitter<Work> = new EventEmitter();
 
+  /**
+   * The state of the card.
+   */
   state: "spawning" | "spawned";
 
+  /**
+   * The URL of the cover image.
+   */
   cover: string | null = null;
 
+  /**
+   * Constructs the card component.
+   */
   constructor() {
     this.state = "spawning";
   }
 
+  /**
+   * @inheritdoc
+   */
   ngOnInit(): void {
     this.state = "spawned";
     this.cover = `${this._rootUrl}olid/${this.work?.coverOlId}-M.jpg`;

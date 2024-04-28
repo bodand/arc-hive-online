@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {ThemeService} from "./services/theme.service";
 
+/**
+ * The root component of the application.
+ */
 @Component({
   selector: 'app-root',
   standalone: false,
@@ -9,6 +12,11 @@ import {ThemeService} from "./services/theme.service";
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
+  /**
+   * Constructs the root component.
+   * @param themeService The theme service for managing the theme.
+   * @param router The router for navigating between pages.
+   */
   constructor(themeService: ThemeService,
               router: Router) {
     this.current_page = router.url;
@@ -30,16 +38,33 @@ export class AppComponent implements OnInit {
     return undefined;
   }
 
+  /**
+   * @inheritdoc
+   */
   ngOnInit() {
     let splash = document.getElementById("splash");
     splash?.classList?.add("splash-close");
   }
 
+  /**
+   * Toggles the hamburger menu. Two-way bound to the UI element.
+   */
   hamburger_open: boolean = false;
-  current_page: string;
-  theme: any;
-  protected readonly RegExp = RegExp;
 
+  /**
+   * The current page of the application.
+   */
+  current_page: string;
+
+  /**
+   * The theme of the application.
+   */
+  theme: any;
+
+  /**
+   * Checks if the current page matches the given route.
+   * @param to_check The route to check.
+   */
   matches_route(to_check: string) {
     return new RegExp(`^/?${to_check}`).test(this.current_page);
   }
