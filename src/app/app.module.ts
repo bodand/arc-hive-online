@@ -2,22 +2,25 @@ import {NgModule} from "@angular/core";
 import {BrowserAnimationsModule, provideAnimations} from "@angular/platform-browser/animations";
 import {BrowserModule} from "@angular/platform-browser";
 import {
+  AccordionModule,
   ButtonModule,
   IconModule,
-  InputModule,
+  InputModule, LinkModule, TagModule,
   ThemeModule,
-  TilesModule,
+  TilesModule, TooltipModule,
   UIShellModule
 } from "carbon-components-angular";
 import {HttpClientModule, provideHttpClient} from "@angular/common/http";
 import {AppComponent} from "./app.component";
-import {provideRouter, RouterLink, RouterOutlet} from "@angular/router";
+import {provideRouter, RouterLink, RouterOutlet, withComponentInputBinding} from "@angular/router";
 import {ThemeSelectorComponent} from "./theme-selector/theme-selector.component";
 import {routes} from "./app.routes";
 import {CardComponent} from "./card/card.component";
 import {ListingsPageComponent} from "./listings-page/listings-page.component";
 import {SearchPageComponent} from "./search-page/search-page.component";
 import {FormsModule} from "@angular/forms";
+import {MarkdownModule, provideMarkdown} from "ngx-markdown";
+import {DetailsPageComponent} from "./details-page/details-page.component";
 
 @NgModule({
   imports: [
@@ -34,13 +37,25 @@ import {FormsModule} from "@angular/forms";
     FormsModule,
     ButtonModule,
     TilesModule,
+    LinkModule,
+    MarkdownModule,
+    AccordionModule,
+    TagModule,
+    TooltipModule
   ],
   providers: [
-    provideRouter(routes),
+    provideRouter(routes, withComponentInputBinding()),
     provideHttpClient(),
     provideAnimations(),
+    provideMarkdown(),
   ],
-  declarations: [AppComponent, ListingsPageComponent, SearchPageComponent, CardComponent],
+  declarations: [
+    AppComponent,
+    ListingsPageComponent,
+    SearchPageComponent,
+    CardComponent,
+    DetailsPageComponent,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

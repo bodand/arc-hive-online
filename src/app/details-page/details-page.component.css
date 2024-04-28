@@ -1,0 +1,97 @@
+.details-whole {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2rem;
+}
+.details-whole.cds--g90 *, .details-whole.cds--g100 * {
+  --ah-plan-to-read: rgb(0, 83, 154);
+  --ah-reading: rgb(0, 93, 93);
+  --ah-finished: rgb(14, 96, 39);
+}
+.details-whole.cds--white *, .details-whole.cds--g10 * {
+  --ah-plan-to-read: rgb(130, 207, 255);
+  --ah-reading: rgb(61, 219, 217);
+  --ah-finished: rgb(111, 220, 140);
+}
+@media not all and (min-width: 1000px) {
+  .details-whole {
+    flex-flow: row wrap;
+  }
+}
+
+.details-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tag-set {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.details-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.details-cover {
+  min-width: 15%;
+  width: fit-content;
+  flex-shrink: 0;
+}
+.details-cover img {
+  max-height: 80vh;
+  max-width: 70vw;
+}
+
+.details-authors {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.5rem;
+}
+
+.stats .stats-bar {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 100%;
+  min-height: 2rem;
+}
+@media not all and (min-width: 1000px) {
+  .stats .stats-bar {
+    display: block;
+  }
+}
+.stats .stats-bar .bar-elem {
+  display: inline-block;
+}
+@media not all and (min-width: 1000px) {
+  .stats .stats-bar .bar-elem {
+    display: block;
+  }
+}
+.stats .stats-bar div {
+  height: 100%;
+  padding: 0.5rem;
+}
+.stats .stats-legend {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.5rem;
+}
+.stats .stats-legend div {
+  padding: 0.5rem;
+}
+.stats .stats-want {
+  background-color: var(--ah-plan-to-read);
+}
+.stats .stats-current {
+  background-color: var(--ah-reading);
+}
+.stats .stats-done {
+  background-color: var(--ah-finished);
+}
+
+/*# sourceMappingURL=details-page.component.css.map */

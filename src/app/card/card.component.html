@@ -1,4 +1,7 @@
-<cds-clickable-tile class="ah-card" [@creation]="state">
+<cds-clickable-tile class="ah-card"
+                    [@creation]="state"
+                    [route]="['details', work?.olId]"
+                    [href]="'/details' + work?.olId">
   <div class="card-content">
     <h5>{{ work?.author || "" }}</h5>
     <h3>{{ work?.title || "&lt;Unknown&gt;" }}</h3>

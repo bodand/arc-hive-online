@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Theme} from "../../model/theme";
 import {UserThemeService} from "./user-theme.service";
+import {Observable, Subject} from "rxjs";
 
 /**
  * A service that provides the theming functionality for the application.
@@ -16,6 +17,12 @@ export class ThemeService {
     {name: "Darker", key: "g100"},
   ];
   private _theme: Theme;
+  private _callback: Subject<string> = new Subject<string>();
+
+  /**
+   * Observable endpoint for handling changes to the theme.
+   */
+  theme$: Observable<string> = this._callback.asObservable();
 
   /**
    * Constructs the service. Loads the previously set theme, if it is available.
@@ -45,6 +52,7 @@ export class ThemeService {
   set theme(value: string) {
     this._theme = this.get_theme_by_name(value);
     localStorage.setItem("ah-theme", JSON.stringify(this._theme));
+    this._callback.next(this._theme.key);
   }
 
   /**

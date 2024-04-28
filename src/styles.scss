@@ -65,12 +65,40 @@
   > path {
     fill: var(--cds-text-secondary);
   }
+
+  > polygon {
+    fill: var(--cds-text-secondary);
+  }
 }
 
 // This breaks when applied in isolated CSS
 a[href="#"].cds--tile.cds--tile--clickable {
   height: 100%;
 }
+
+// This breaks when applied in isolated CSS
+.link-set div.cds--accordion__content {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+
+// This breaks when applied in isolated CSS
+div.cds--accordion__content:has(div.stats-bar) {
+  padding-inline-end: 1.5rem !important;
+}
+
+
+// This breaks when applied in isolated CSS
+.stats {
+  .cds--accordion__wrapper > div.cds--accordion__content {
+    display: flex;
+    flex-flow: row wrap-reverse;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
 
 .lds-grid,
 .lds-grid div {
